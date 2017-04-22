@@ -60,14 +60,54 @@ var isEven = function (number) {
 console.log(isEven(-2));
 
 // Exercise 3 'Bean Counting'
-var countBs = function (bWord, letter) {
-  var bNum = 0;
-  for (var word = 0; word <= bWord.length; word++) {
-    if (bWord.charAt(word) === letter) {
-      bNum++;
+var countLetters = function (word, letter) {
+  var letterNum = 0;
+  for (var j = 0; j <= word.length; j++) {
+    if (word.charAt(j) === letter) {
+      letterNum++;
     }
   }
-  return bNum;
+  return letterNum;
 };
 
-console.log(countBs('memes', 'm'));
+console.log(countLetters('memes', 'm'));
+
+// Chapter 4
+// Exercise 1 'The Sum of a Range'
+
+var range = function (start, end, step) {
+  var rangeArray = [];        // Initialize an empty array
+  if (start < end) {
+    while (start <= end) {
+      rangeArray.push(start); // Push the current number to the array
+      if (!step) {
+        start += 1;           // Default step of 1 if no step given
+      } else {
+        start += step;
+      }
+    }
+  } else {
+    while (start >= end) {
+      rangeArray.push(start);
+      if (!step) {
+        start -= 1;
+      } else {
+        start += step;
+      }
+    }
+  }
+  return rangeArray;
+};
+
+console.log(range(1, 5, 1));
+console.log(range(10, 1, -1));
+
+var sum = function (numArray) {
+  var total = 0;
+  for (var arraySelector = 0; arraySelector <= numArray.length; arraySelector++) {
+    total += numArray[arraySelector];
+  }
+  return total;
+};
+
+console.log(sum(range(1, 10)));
